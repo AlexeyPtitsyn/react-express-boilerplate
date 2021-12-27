@@ -12,8 +12,10 @@ npm install
 
 Run:
 
+`npm run <script>`:
+
 - `build-dev` - build react application in watch mode,
 - `build-production` - build react applicatoin in production mode,
-- `run-server` - just run backend server,
+- `server` - just run backend server,
 - `build-and-run` - build react app in development mode and run server,
 - `build-and-run-production` - build react app in production mode and run server.

@@ -1,9 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './TestComponent.scss';
 
-function TestComponent(props) {
-  const [count, setCount] = useState(0);
+// Background request example.
+function requestBackend() {
+  return new Promise((resolve, reject) => {
+  fetch('/json')
+    .then(res => {
+      if(!res.ok) {
+        return Promise.reject(new Error('Server returned error code: ' + res.status));
+      }
+      return res;
+    })
+    .then(res => res.json())
+    .then(result => {
+      resolve(result);
+    })
+    .catch(error => {
+      reject(error);
+    });
+  });
+}
 
+/**
+ * Component itself
+ */
+function TestComponent(props) {
+
+  useEffect(() => {
+    // Component did mount.
+    requestBackend()
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.error('Error: ' + err.message);
+      });
+  }, []);
+
+  const [count, setCount] = useState(0);
 
   const increase = function() {
     setCount(count + 1);

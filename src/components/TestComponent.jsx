@@ -1,7 +1,16 @@
+/**
+ * @file Test react component.
+ * @author Alexey Ptitsyn <alexey.ptitsyn@gmail.com>
+ * @copyright Alexey Ptitsyn <alexey.ptitsyn@gmail.com>, 2022
+ */
+
 import React, { useEffect, useState } from 'react';
 import './TestComponent.scss';
 
-// Background request example.
+/**
+ * Backend interaction example.
+ * @returns {Promise}
+ */
 function requestBackend() {
   return new Promise((resolve, reject) => {
   fetch('/json')
@@ -22,7 +31,13 @@ function requestBackend() {
 }
 
 /**
- * Component itself
+ * @typedef {object} Props
+ * @prop {string} test Test prop
+ */
+
+/**
+ * Component itself.
+ * @param {Props} props Component properties.
  */
 function TestComponent(props) {
   const [JSONData, setJSONData] = useState(null);

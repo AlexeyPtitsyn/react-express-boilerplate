@@ -1,3 +1,9 @@
+/**
+ * @file Server example.
+ * @author Alexey Ptitsyn <alexey.ptitsyn@gmail.com>
+ * @copyright Alexey Ptitsyn <alexey.ptitsyn@gmail.com>, 2022
+ */
+
 const express = require('express')
 const app = express()
 const port = 3000

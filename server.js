@@ -9,7 +9,7 @@ app.get('/test', (req, res) => {
 });
 
 app.get('/json', (req, res) => {
-  res.send({
+  res.json({
     test: 'test'
   });
 });

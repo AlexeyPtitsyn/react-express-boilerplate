@@ -25,12 +25,14 @@ function requestBackend() {
  * Component itself
  */
 function TestComponent(props) {
+  const [JSONData, setJSONData] = useState(null);
 
   useEffect(() => {
     // Component did mount.
     requestBackend()
       .then(data => {
         console.log(data);
+        setJSONData(data);
       })
       .catch(err => {
         console.error('Error: ' + err.message);
@@ -55,6 +57,13 @@ function TestComponent(props) {
       
       <button onClick={increase}>+</button>
       <button onClick={decrease}>-</button>
+
+      <div>
+        <b>JSON</b>
+      </div>
+      <pre>
+        {JSON.stringify(JSONData, null, 2)}
+      </pre>
     </>
   );
 }
